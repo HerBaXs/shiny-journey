@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/dycalendar.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-bar"></div>
+            <input type="checkbox" class="check" id="checked">
+            <label class="menu-btn" for="checked">
+                <span class="bar top"></span>
+                <span class="bar middle"></span>
+                <span class="bar bottom"></span>
+                <span class="menu-btn__text"></span>
+                </label>
+            <label class="close-menu" for="checked"></label>
+            <nav class="drawer-menu">
+            <ul>
+                <li><a href="Men 2 ci seyfeyem.html">Calendar</a></li>
+                <li><a href="hyper.html">Calculator</a></li>
+                <li><a href="Master.html">O'Clock</a></li>
+            </ul>
+            </nav>
+
+            <!-- Step 3 Calendar -->
+
+            <section>
+                <div class="box">
+                    <div class="containe_r">
+                        <div id="dycalendar"></div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="containeR">
+                <h1>To Do List</h1>
+                <input type="text" id="inputField"><button id="addToDo">+</button>
+                <div class="to-dos" id="toDoContainer"></div>
+            </div>
+
+            <script>
+                let addToDoButton = document.getElementById("addToDo");
+                let toDoContainer = document.getElementById("toDoContainer");
+                let inputField    = document.getElementById("inputField");
+
+                addToDoButton.addEventListener('click', function(){
+                    var paragraph = document.createElement("p");
+                    paragraph.classList.add("paragraph-styling");
+                    paragraph.innerText = inputField.value;
+                    toDoContainer.appendChild(paragraph);
+                    inputField.value = "";
+                    paragraph.addEventListener("click", function() {
+                        paragraph.style.textDecoration = "line-through";
+                    })
+                    paragraph.addEventListener("dblclick", function() {
+                        toDoContainer.removeChild(paragraph);
+    })
+})
+            </script>
+
+            <script src="java/dycalendar.js"></script>
+            <script>
+                dycalendar.draw({
+                    target: '#dycalendar',
+                    type: 'month',
+                    dayformat: 'full',
+                    monthformat: 'full',
+                    highlighttargetdate: true,
+                    prevnextbutton: 'show'
+                })
+            </script>
+
+
+        </div>
+        </div>
+</body>
+</html>

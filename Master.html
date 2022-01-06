@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mr.Herbaxs</title>
+        <link rel="stylesheet" href="bts/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/Mag.css">
+        
+    </head>
+    <body>
+
+        <!-- Step Container -->
+        <div class="container-fluid">
+        <div class="row">
+            
+            
+            
+            <!-- The Navigation -->
+
+            <div id="mobile-bar"></div>
+            <input type="checkbox" class="check" id="checked">
+            <label class="menu-btn" for="checked">
+                <span class="bar top"></span>
+                <span class="bar middle"></span>
+                <span class="bar bottom"></span>
+                <span class="menu-btn__text"></span>
+                </label>
+                <label class="close-menu" for="checked"></label>
+            <nav class="drawer-menu">
+            <ul>
+                <li><a href="Men 2 ci seyfeyem.html">Calendar</a></li>
+                <li><a href="hyper.html">Calculator</a></li>
+                <li><a href="Master.html">O'Clock</a></li>
+            </ul>
+            </nav>
+
+            <!-- The End Navigation -->
+
+            
+            <!-- Step 2 O'Clock  -->
+            
+            <div class="sec_tion">
+                <div class="clock">
+                    <div class="hour">
+                        <div class="hr" id="hr"></div>
+                    </div>
+                    <div class="min">
+                        <div class="mn" id="mn"></div>
+                    </div>
+                    <div class="sec">
+                        <div class="sc" id="sc"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The End Step 2 O'Clock  -->
+
+
+            <!-- THE Step 3 To Do List -->
+            
+            <div class="containeR">
+                <h1>To Do List</h1>
+                <input type="text" id="inputField"><button id="addToDo">+</button>
+                <div class="to-dos" id="toDoContainer"></div>
+            </div>
+
+            <!-- ThE End Step 3 To Do List -->
+
+
+        </div>
+        </div>
+        <!-- End Step Container -->
+
+
+        <script>
+            const deg = 6;
+            const hr = document.querySelector("#hr");
+            const mn = document.querySelector("#mn");
+            const sc = document.querySelector("#sc");
+            setInterval(() => {
+                let day = new Date();
+                let hh = day.getHours() * 30;
+                let mm = day.getMinutes() * deg;
+                let ss = day.getSeconds() * deg;
+                hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+                mn.style.transform = `rotateZ(${mm}deg)`;
+                sc.style.transform = `rotateZ(${ss}deg)`
+            })
+        </script>
+
+        <script src="java/Viper.js"></script>
+    </body>
+
+</html>

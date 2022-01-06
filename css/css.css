@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.demo
+{
+    width: 20%;
+    height: 100vh;
+    display: inline-block;
+    background: #333;
+}
+
+/* ul li
+{
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+    padding: 15px 10px;
+    margin: 10px 0;
+    background:rgba(0, 253, 106, 0.63)
+}
+
+a
+{
+    color: #fff;
+    text-align: right;
+    text-decoration: none;
+} */
+
+  #mobile-bar {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 75px;
+    background: #181818;
+  }
+  
+  /* Mobile Navigation */
+  /* drawer menu */
+  .drawer-menu {
+    z-index: 9999;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 120px 0;
+    background: #1c1c1a;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    transform: translateX(-500px);
+    opacity: 1;
+    box-shadow: 0px 0px 5px #000;
+  }
+  
+  .drawer-menu ul {
+    padding-left: 0;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  .drawer-menu li {
+    text-align: left;
+    list-style-type: none;
+  }
+  
+  .drawer-menu li a {
+    padding-left: 60px;
+    display: block;
+    height: 60px;
+    line-height: 62px;
+    font-size: 19px;
+    color: #edeeef;
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  
+  /* Checkbox to Display Nav Content */
+  .check {
+    display: none;
+  }
+  
+  /* Menu Button - Label Tag */
+  .menu-btn {
+    position: fixed;
+    display: block;
+    flex-direction: column;
+    top: 17px;
+    left: 22px;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+  .bar {
+    display: block;
+    width: 37px;
+    height: 1px;
+    margin-top: 10px;
+    background: #edeeef;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+  }
+  
+  .bar.middle {
+    top: 10px;
+    opacity: 1;
+  }
+  
+  .bar.bottom {
+    top: 20px;
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+  }
+  
+  .menu-btn__text {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Close Menu */
+  .close-menu {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    visibility: hidden;
+  }
+  
+  /* Checked Effects */
+  .check:checked ~ .drawer-menu {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+    z-index: 999;
+  }
+  
+  .check:checked ~ .contents {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+  
+  .check:checked ~ .menu-btn .menu-btn__text {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .check:checked ~ .menu-btn .bar.top {
+    width: 37px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .check:checked ~ .menu-btn .bar.middle {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  .check:checked ~ .menu-btn .bar.bottom {
+    width: 37px;
+    margin-top: 14px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .check:checked ~ .close-menu {
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+    /* background: rgba(0, 0, 0, 0.5); */
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+  }
+  
+  /* Media Queries to resize to desktop view */
+  
+  @media screen and (min-width: 768px) {
+    /*  Don't Display Mobile Navigation  要隱藏時設none*/
+  
+    .drawer-menu {
+      display: block;
+    }
+  
+    .close-menu {
+      display: block;
+    }
+  
+    #mobile-bar {
+      display: block;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+  }
+
+
+  /* Step 3 Calendar  */
+
+section
+{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82%;
+  float: right;
+  min-height: 100vh;
+  background: #161623;
+  overflow: hidden;
+}
+
+section::before
+{
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(#ffc107, #e91e63);
+  border-radius:50%;
+  transform: translate(-250px,-120px);
+}
+
+section::after
+{
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(#2196f3, #31ff38);
+  border-radius: 50%;
+  transform: translate(250px, 150px);
+}
+
+.box
+{
+  position: relative;
+  z-index: 1000;
+}
+
+.containe_r
+{
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 13;
+}
+
+#dycalendar
+{
+  width: 100%;
+  padding: 20px;
+}
+
+#dycalendar table
+{
+  width: 100%;
+  ;margin-top: 40px;
+  border-spacing: 5px;
+}
+
+#dycalendar table tr:nth-child(1) td
+{
+  color: #111;
+  background: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+#dycalendar table td
+{
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#dycalendar table td:hover
+{
+  color: #111 !important;
+  background: #fff;
+}
+
+.dycalendar-month-container .dycalendar-today-date, 
+.dycalendar-month-container .dycalendar-target-date
+{
+  color: #111 !important;
+  background: #fff;
+}
+
+.dycalendar-month-container .dycalendar-header
+.dycalendar-prev-next-btn.prev-btn
+{
+  color: #111;
+  width: 44px;
+  height: 38px;
+  left: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background-color: #fff;
+}
+
+.dycalendar-month-container .dycalendar-header 
+.dycalendar-prev-next-btn.next-btn
+{
+  color: #111;
+  width: 44px;
+  height: 38px;
+  right: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background-color: #fff;
+}
+
+.dycalendar-month-container .dycalendar-span-month-year
+{
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+h1
+{
+  display: inline-block;
+  margin-top: 90px;
+}
+
+#addToDo
+{
+  width: 50px;
+  height: 46px;
+  border: 1px solid #000;
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#inputField
+{
+  width: 150px;
+  height: 46px;
+  border: 1px solid #000;
+  outline: none;
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+.to-dos
+{
+  margin-top: 25px;
+}
+
+.paragraph-styling
+{
+  margin: 0;
+  cursor: pointer;
+  font-size: 20px;
+}

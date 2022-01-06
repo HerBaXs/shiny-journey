@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.demo
+{
+    width: 20%;
+    height: 100vh;
+    display: inline-block;
+    z-index: 10000;
+    background: #333;
+}
+
+.container
+{  
+    width: 82%;
+    height: 100vh;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9400d3;
+    z-index: 90000;
+}
+
+.calculator
+{
+    padding: 15px;
+    border-radius: 30px;
+    background: #ecf0f3;
+    box-shadow: inset 5px 5px 12px #fff,
+                      5px 5px 12px rgba(0, 0, 0, .16);
+    display: grid;
+    grid-template-columns: repeat(4, 68px);
+}
+
+.inpt
+{
+    width: 260px;
+    height: 70px;
+    border: none;
+    grid-column: span 4;
+    background: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #fff,
+                inset 5px 5px 12px rgba(0, 0, 0, .16);
+    font-size: 40px;
+    border-radius: 30px;
+    color: rgb(70, 70, 70);
+    text-align: end;
+    padding: 20px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+}
+
+.bttn
+{
+    width: 48px;
+    height: 48px;
+    margin: 8px;
+    border: none;
+    font-size: 16px;
+    border-radius: 25%;
+    background: #ecf0f3;
+    box-shadow: -5px -5px 12px #fff,
+                5px 5px 12px rgba(0, 0, 0, .16);
+    transition: 0.2s;
+}
+
+.bttn:hover 
+{
+    background: #333;
+    color: rgba(255, 255, 255, 0.774);
+    -webkit-box-shadow: 0px -1px 19px 3px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px -1px 19px 3px rgba(0,0,0,0.64);
+    box-shadow: 0px -1px 19px 3px rgba(0,0,0,0.64);
+}
+
+.equal
+{
+    width: 115px;
+    background: #ecf0f3;
+    box-shadow: -5px -5px 12px #fff,
+                5px 5px 12px rgba(0, 0, 0, .16);
+}
+
+#mobile-bar {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 75px;
+    background: #181818;
+  }
+  
+  /* Mobile Navigation */
+  /* drawer menu */
+  .drawer-menu {
+    z-index: 9999;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 120px 0;
+    background: #1c1c1a;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    transform: translateX(-500px);
+    opacity: 1;
+    box-shadow: 0px 0px 5px #000;
+  }
+  
+  .drawer-menu ul {
+    padding-left: 0;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  .drawer-menu li {
+    text-align: left;
+    list-style-type: none;
+  }
+  
+  .drawer-menu li a {
+    padding-left: 60px;
+    display: block;
+    height: 60px;
+    line-height: 62px;
+    font-size: 19px;
+    color: #edeeef;
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  
+  /* Checkbox to Display Nav Content */
+  .check {
+    display: none;
+  }
+  
+  /* Menu Button - Label Tag */
+  .menu-btn {
+    position: fixed;
+    display: block;
+    flex-direction: column;
+    top: 17px;
+    left: 22px;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+  .bar {
+    display: block;
+    width: 37px;
+    height: 1px;
+    margin-top: 10px;
+    background: #edeeef;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+  }
+  
+  .bar.middle {
+    top: 10px;
+    opacity: 1;
+  }
+  
+  .bar.bottom {
+    top: 20px;
+    -webkit-transform-origin: left bottom;
+    -ms-transform-origin: left bottom;
+    transform-origin: left bottom;
+  }
+  
+  .menu-btn__text {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Close Menu */
+  .close-menu {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.15s;
+    transition-duration: 0.15s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    visibility: hidden;
+  }
+  
+  /* Checked Effects */
+  .check:checked ~ .drawer-menu {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+    z-index: 999;
+  }
+  
+  .check:checked ~ .contents {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+  
+  .check:checked ~ .menu-btn .menu-btn__text {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .check:checked ~ .menu-btn .bar.top {
+    width: 37px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .check:checked ~ .menu-btn .bar.middle {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  .check:checked ~ .menu-btn .bar.bottom {
+    width: 37px;
+    margin-top: 14px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .check:checked ~ .close-menu {
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    -webkit-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+    /* background: rgba(0, 0, 0, 0.5); */
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+  }
+
+  /* TODO: The To Do List */
+
+  h1
+  {
+    display: inline-block;
+    margin-top: 90px;
+  }
+
+  /* #addTodo
+  {
+    width: 50px;
+    height: 46px;
+    font-size: 30px;
+    vertical-align: middle;
+    border: 1px solid #000;
+  } */
+
+  #addToDo
+  {
+    width: 50px;
+    height: 46px;
+    font-size: 30px;
+    vertical-align: middle;
+    border: 1px solid #000;
+  }
+  
+  #inputField
+  {
+    width: 150px;
+    height: 46px;
+    border: 1px solid #000;
+    outline: none;
+    font-size: 25px;
+    display: inline;
+    vertical-align: middle;
+  }
+  
+  .to-dos
+  {
+    margin-top: 25px;
+  }
+  
+  .paragraph-styling
+  {
+    margin: 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  /* TODO: End To Do List */
+  
+  /* Media Queries to resize to desktop view */
+  
+  @media screen and (min-width: 768px) {
+    /*  Don't Display Mobile Navigation  要隱藏時設none*/
+  
+    .drawer-menu {
+      display: block;
+    }
+  
+    .close-menu {
+      display: block;
+    }
+  
+    #mobile-bar {
+      display: block;
+    }
+  
+    .menu-btn {
+      display: block;
+    }
+  }
+  
+
+  

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/todolist.css">
+    <link rel="stylesheet" href="style/styleSheets.css">
+</head>
+<body>
+    
+
+            <!-- The "Navbar" Navigation -->
+            <div id="mobile-bar"></div>
+            <input type="checkbox" class="check" id="checked">
+            <label class="menu-btn" for="checked">
+                <span class="bar top"></span>
+                <span class="bar middle"></span>
+                <span class="bar bottom"></span>
+                <span class="menu-btn__text"></span>
+                </label>
+            <label class="close-menu" for="checked"></label>
+            <nav class="drawer-menu">
+            <ul>
+                <li><a href="Men 2 ci seyfeyem.html">Calendar</a></li>
+                <li><a href="hyper.html">Calculator</a></li>
+                <li><a href="Master.html">O'Clock</a></li>
+            </ul>
+            </nav>
+
+            <!-- End "Navbar" Navigation -->
+
+
+
+            <!-- The Calculator -->
+
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen" class="inpt">
+            <button class="bttn" onclick="cls()">CE</button>
+            <button class="bttn" onclick="del()">DEL</button>
+            <button class="bttn" onclick="display('%')">%</button>
+            <button class="bttn" onclick="display('/')">/</button>
+            <button class="bttn" onclick="display('7')">7</button>
+            <button class="bttn" onclick="display('8')">8</button>
+            <button class="bttn" onclick="display('9')">9</button>
+            <button class="bttn" onclick="display('*')">*</button>
+            <button class="bttn" onclick="display('4')">4</button>
+            <button class="bttn" onclick="display('5')">5</button>
+            <button class="bttn" onclick="display('6')">6</button>
+            <button class="bttn" onclick="display('-')">-</button>
+            <button class="bttn" onclick="display('1')">1</button>
+            <button class="bttn" onclick="display('2')">2</button>
+            <button class="bttn" onclick="display('3')">3</button>
+            <button class="bttn" onclick="display('+')">+</button>
+            <button class="bttn" onclick="display('.')">.</button>
+            <button class="bttn" onclick="display('0')">0</button>
+            <button class="bttn" onclick="Calculate()" class="equal">=</button>
+        </div>
+    </div>
+
+            <!-- End Calculator -->
+
+
+
+
+    <!-- THE step to do list -->
+
+        <h1>To Do List</h1>
+            <div class="contaIner">
+            
+            <input type="text" id="inputField"><button id="addToDo">+</button>
+            <div class="to-dos" id="toDoContainer">
+
+            </div>
+            </div>
+
+        <script src="java/error.js"></script>
+    <!-- End step to do list -->
+    
+
+       
+
+    <!-- THE END step to do list -->
+
+        <!-- The To Do List "JavaScript" -->
+
+    <script>
+        let outputScreen = document.getElementById("output-screen");
+
+        function display(num) {
+            outputScreen.value += num;
+        }
+        
+        function Calculate() {
+            try{
+                outputScreen.value = eval(outputScreen.value);
+            }
+            catch(err)
+            {
+                alert("Invalid");
+            }
+        
+        }
+
+        function cls(){
+                outputScreen.value = "";
+            }
+            function del(){
+                outputScreen.value = outputScreen.value.slice(0, -1);
+            }
+    </script>
+    
+        <!-- End To Do List "JavaScript" -->
+
+
+</div>
+</body>
+</html>
